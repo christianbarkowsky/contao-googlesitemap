@@ -1,0 +1,2 @@
+# contao-googlesitemap
+contao-googlesitemap
