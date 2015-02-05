@@ -22,7 +22,7 @@
  * @copyright  Andreas Schempp 2009
  * @author     Andreas Schempp <andreas@schempp.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
- * @version    $Id: tl_page.php 100 2010-05-12 07:48:55Z aschempp $ 
+ * @version    $Id$ 
  */
 
 
@@ -49,6 +49,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['initialPage'] = array
 	'exclude'				=> true,
 	'inputType'				=> 'checkbox',
 	'eval'					=> array('tl_class'=>'w50'),
+        'sql' => "char(1) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['sitemap_lastmod'] = array
@@ -57,7 +58,8 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['sitemap_lastmod'] = array
 	'exclude'				=> true,
 	'inputType'				=> 'text',
 	'default'				=> time(),
-	'eval'					=> array('maxlength'=>10, 'rgxp'=>'date', 'datepicker'=>$this->getDatePickerString(), 'tl_class'=>'w50 wizard')
+	'eval'					=> array('maxlength'=>10, 'rgxp'=>'date', 'datepicker'=>$this->getDatePickerString(), 'tl_class'=>'w50 wizard'),
+        'sql' => "varchar(11) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['sitemap_ignore'] = array
@@ -65,7 +67,8 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['sitemap_ignore'] = array
 	'label'					=> &$GLOBALS['TL_LANG']['tl_page']['sitemap_ignore'],
 	'exclude'				=> true,
 	'inputType'				=> 'checkbox',
-	'eval'					=> array('tl_class'=>'w50 m12')
+	'eval'					=> array('tl_class'=>'w50 m12'),
+        'sql' => "char(1) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['sitemap_changefreq'] = array
@@ -76,6 +79,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['sitemap_changefreq'] = array
 	'options'				=> array('always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never'),
 	'reference'				=> &$GLOBALS['TL_LANG']['MSC']['sitemap_changefreq'],
 	'eval'					=> array('includeBlankOption'=>true, 'tl_class'=>'w50'),
+        'sql' => "varchar(10) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['sitemap_priority'] = array
@@ -85,6 +89,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['sitemap_priority'] = array
 	'inputType'				=> 'select',
 	'options'				=> array('0.0', '0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0'),
 	'eval'					=> array('includeBlankOption'=>true, 'tl_class'=>'w50'),
+        'sql' => "varchar(3) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['sitemapHeader'] = array
@@ -93,6 +98,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['sitemapHeader'] = array
 	'exclude'				=> true,
 	'inputType'				=> 'textarea',
 	'eval'					=> array('style'=>'height: 60px', 'preserveTags'=>true),
+        'sql' => "text NULL"
 );
 
 
