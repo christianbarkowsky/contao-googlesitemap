@@ -36,11 +36,17 @@ $GLOBALS['TL_DCA']['tl_downloadarchivitems']['palettes']['default'] .= ',addToSi
  */
 $GLOBALS['TL_DCA']['tl_downloadarchivitems']['fields']['published']['eval']['tl_class'] = 'w50';
 
+$GLOBALS['TL_DCA']['tl_downloadarchivitems']['fields']['id'] = array
+(
+	            'sql' => "int(10) unsigned NOT NULL auto_increment"
+);
+
 $GLOBALS['TL_DCA']['tl_downloadarchivitems']['fields']['addToSitemap'] = array
 (
 	'label'			=> &$GLOBALS['TL_LANG']['tl_downloadarchivitems']['addToSitemap'],
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
 	'eval'			=> array('tl_class'=>'w50'),
+        'sql' => "char(1) NOT NULL default ''"
 );
 
